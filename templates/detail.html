@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <div class='container'>
+        <h1 class="alert-heading"> TodoList</h1>
+        <hr>
+        <p class="mb-0">Todoの詳細画面です</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+
+    <div class="alert alert-secondary" role="alert">
+        <p>タイトル：{{ object.title }}</p>
+        <p>中身：{{ object.memo}}</p>
+        <p>期日：{{ object.duedate }}</p>
+
+    </div>
+
+</div>
+{% endblock content %}

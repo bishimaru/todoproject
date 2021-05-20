@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <div class='container'>
+        <h1 class="alert-heading"> TodoList</h1>
+        <hr>
+        <p class="mb-0">やることリストを作って毎日を効率的に過ごそう</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class='container'>
+    <a class="btn btn-success" href="{% url 'create' %}" role="button">新規作成</a>
+
+    <p></p>
+    {% for item in object_list %}
+    <div class="alert alert-{{ item.priority }}" role="alert">
+        <p>{{ item.title}} 　　→期日：{{ item.duedate }}</p>
+        <a class="btn btn-warning" href="{% url 'delete' item.pk %}" role="button">成功！</a>
+
+        <a class="btn btn-success" href="{% url 'update' item.pk %}" role="button">編集</a>
+        <a class="btn btn-danger" href="{% url 'delete' item.pk %}" role="button">削除</a>
+        <a class="btn btn-info" href="{% url 'detail' item.pk %}" role="button">詳細</a>
+    </div>
+
+
+    {% endfor %}
+</div>
+{% endblock content %}
