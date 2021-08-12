@@ -8,3 +8,4 @@ class TodoModel(models.Model):
     memo = models.TextField()
     priority = models.CharField(max_length=50, choices=PRIORITY)
     duedate = models.DateField()
+    is_deleted = models.BooleanField(default=False)
